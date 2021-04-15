@@ -1,0 +1,4 @@
+@(f: => Html)
+@import _root_.utils.MarkdownHelper._
+
+@Html(renderer.render(parser.parse(f.toString.stripMargin)))

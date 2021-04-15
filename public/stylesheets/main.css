@@ -1,0 +1,10 @@
+body {
+    padding: 30px;
+}
+th {
+    text-align: right;
+    white-space: nowrap;
+}
+td {
+    text-align: left;
+}

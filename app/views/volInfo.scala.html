@@ -1,0 +1,87 @@
+@import providers.ExtractedFeaturesProvider
+@import config.ReleaseConfig
+
+@this(provider: ExtractedFeaturesProvider)
+@(date: String, meta: VolumeMeta, accessRightsMap: Map[String, String], release: ReleaseConfig)(implicit request: RequestHeader)
+
+@main(meta.htid) {
+    <img src='@routes.Assets.versioned("images/htrc-2020-logo.png")' width="400" height="74" alt="HTRC Logo"/>
+
+    @md {
+        |# HathiTrust Extracted Features
+        |## Volume Information
+    }
+
+    <table>
+        <tr>
+            <th>HathiTrust Id:</th>
+            <td>@{meta.htid}</td>
+        </tr>
+        <tr>
+           <th>Title:</th>
+           <td>@{meta.title}</td>
+        </tr>
+        <tr>
+            <th>Authors:</th>
+            <td>
+                <ol>
+                @for(contributors <- meta.contributors) {
+                    @for(contributor <- contributors) {
+                        <li><a href="@{contributor.id}">@{contributor.name}</a></li>
+                    }
+                }
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Publication date:</th>
+            <td>@{meta.pubDate}</td>
+        </tr>
+        <tr>
+            <th>Publication place:</th>
+            <td>@{meta.pubPlace}</td>
+        </tr>
+        <tr>
+            <th>Catalog record:</th>
+            <td>
+            @for(catalogRecord <- meta.catalogRecord) {
+                <a href="@catalogRecord">@catalogRecord</a>
+            }
+            </td>
+        </tr>
+        <tr>
+            <th>Access rights:</th>
+            <td>@{meta.accessRights} (@{meta.accessRights.map(accessRightsMap.get)})</td>
+        </tr>
+        <tr>
+            <th>Languages:</th>
+            <td>@{meta.languages.map(_.mkString(", "))}</td>
+        </tr>
+        <tr>
+            <th>Page count:</th>
+            <td>@{meta.numPages}</td>
+        </tr>
+    </table>
+
+    @md {
+        |## Download
+        |You may download the HTRC Extracted Features file for `@{meta.htid}` (version `@date`) via the options below.
+        @for(url <- release.baseUrl) {
+            |
+            |### Direct download
+            |[Download](@url/@provider.getRelativePath(meta.htid) "@{meta.htid}")
+            |
+            |### Download via cURL
+            |```
+            |curl -O @url/@provider.getRelativePath(meta.htid)
+            |```
+        }
+        @for(rsync <- release.rsync) {
+            |
+            |### Download via rsync
+            |```
+            |rsync -P @rsync/@provider.getRelativePath(meta.htid) .
+            |```
+        }
+    }
+}
