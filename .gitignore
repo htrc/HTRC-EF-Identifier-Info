@@ -1,0 +1,5 @@
+/.bsp/
+/.idea/
+/RUNNING_PID
+logs/
+target/
