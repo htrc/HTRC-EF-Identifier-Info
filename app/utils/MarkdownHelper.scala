@@ -7,7 +7,7 @@ import org.commonmark.ext.ins.InsExtension
 import org.commonmark.parser.Parser
 import org.commonmark.renderer.html.HtmlRenderer
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 object MarkdownHelper {
   private val extensions = List(

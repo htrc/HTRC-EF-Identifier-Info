@@ -96,7 +96,7 @@ class ExtractedFeaturesControllerSpec extends PlaySpec with GuiceOneAppPerTest w
     val mockedMetadataProvider = mock[ExtractedFeaturesProvider]
     (mockedMetadataProvider.getExtractedFeaturesPath _).expects(_dirPath, _htid).returning(_stubbyPath).once()
     (mockedMetadataProvider.getMetadata _).expects(_stubbyPath).returning(Success(_volumeMeta)).once()
-    (mockedMetadataProvider.getRelativePath _).expects(*) anyNumberOfTimes()
+    (mockedMetadataProvider.getRelativePath _).expects(*).anyNumberOfTimes()
 
     mockedMetadataProvider
   }
