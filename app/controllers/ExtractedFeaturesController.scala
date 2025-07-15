@@ -25,13 +25,13 @@ class ExtractedFeaturesController @Inject()(extractedFeaturesProvider: Extracted
           val release = config.releasesMap(dataset)
           val efPath = extractedFeaturesProvider.getExtractedFeaturesPath(release.path, htid)
           extractedFeaturesProvider.getMetadata(efPath) match {
-            case Success(meta) if meta.version == date =>
+            case Success(meta) =>
               render {
                 case Accepts.Html() => Ok(volInfo(date, meta, config.accessRightsMap, release))
                 case Accepts.Json() => Ok(Json.toJson(meta))
               }
 
-            case Success(meta) => NotFound(s"Version mismatch - newer version found ${meta.version}")
+//            case Success(meta) => NotFound(s"Version mismatch - newer version found ${meta.version}")
 
             case Failure(_: NoSuchFileException) => NotFound
             case Failure(e) => InternalServerError(e.toString)
