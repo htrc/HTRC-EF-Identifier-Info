@@ -1,4 +1,4 @@
-resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers ++= Resolver.sonatypeOssRepos("snapshots")
 
 addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.13")
 
