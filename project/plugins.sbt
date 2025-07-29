@@ -1,7 +1,7 @@
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 resolvers += "Typesafe Ivy Releases" at "https://repo.typesafe.com/typesafe/ivy-releases"
 
-addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.13")
+addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.9.8")
 
 addSbtPlugin("com.typesafe.sbt"       % "sbt-git"             % "1.0.2")
 addSbtPlugin("com.github.sbt"         % "sbt-native-packager" % "1.9.7")
