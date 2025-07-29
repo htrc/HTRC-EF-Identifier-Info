@@ -1,4 +1,4 @@
-resolvers += "Typesafe Maven Releases" at "https://repo.typesafe.com/typesafe/releases"
+resolvers += "Typesafe Ivy Releases" at "https://repo.typesafe.com/typesafe/ivy-releases"
 
 addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.13")
 
