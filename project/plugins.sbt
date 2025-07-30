@@ -1,5 +1,5 @@
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
-resolvers += "Typesafe Releases" at "https://repo.typesafe.com/typesafe/releases"
+resolvers += "Typesafe Releases" at "https://repo.typesafe.com/typesafe/releases/"
 
 dependencyOverrides += "com.typesafe.play" %% "twirl-api" % "1.6.6"
 
