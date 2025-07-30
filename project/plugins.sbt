@@ -1,6 +1,8 @@
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 resolvers += "Typesafe Ivy Releases" at "https://repo.typesafe.com/typesafe/ivy-releases"
 
+dependencyOverrides += "com.typesafe.play" %% "twirl-api" % "1.6.6"
+
 addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.19")
 
 addSbtPlugin("com.typesafe.sbt"       % "sbt-git"             % "1.0.2")
