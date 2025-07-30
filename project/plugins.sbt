@@ -1,9 +1,6 @@
-ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
-resolvers += "Typesafe Releases" at "https://repo.typesafe.com/typesafe/releases/"
+resolvers += "HTRC Nexus Repository" at "https://nexus.htrc.illinois.edu/repository/maven-public"
 
-dependencyOverrides += "com.typesafe.play" %% "twirl-api" % "1.6.6"
-
-addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.19")
+addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.13")
 
 addSbtPlugin("com.typesafe.sbt"       % "sbt-git"             % "1.0.2")
 addSbtPlugin("com.github.sbt"         % "sbt-native-packager" % "1.9.7")
