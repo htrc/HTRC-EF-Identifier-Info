@@ -25,6 +25,8 @@ jobs:
         distribution: 'temurin'
         cache: 'sbt'
     - uses: sbt/setup-sbt@v1
+    - name: Clean cache
+      run: rm -rf ~/.cache/coursier
     - name: Run tests
       run: sbt clean compile test
     - name: Build docker image
