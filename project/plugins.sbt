@@ -1,5 +1,3 @@
-resolvers += "HTRC Nexus Repository" at "https://nexus.htrc.illinois.edu/repository/maven-public/"
-
 addSbtPlugin("com.typesafe.play"      % "sbt-plugin"          % "2.8.13")
 
 addSbtPlugin("com.typesafe.sbt"       % "sbt-git"             % "1.0.2")
