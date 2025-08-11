@@ -1,4 +1,4 @@
-import com.typesafe.sbt.packager.docker.DockerPermissionStrategy
+import com.typesafe.sbt.packager.docker.{Cmd, DockerPermissionStrategy}
 import sbt.url
 import sbtbuildinfo.BuildInfoPlugin
 
@@ -76,7 +76,7 @@ lazy val dockerSettings = Seq(
   Docker / packageName := "services/ef-identifier-info",
   Docker / daemonUserUid := None,
   Docker / daemonUser := "daemon",
-  dockerBaseImage := "anapsix/alpine-java:8",
+  dockerBaseImage := "openjdk:11-jre-slim-bullseye",
   dockerExposedPorts := Seq(9000),
   dockerRepository := Some("docker.htrc.illinois.edu"),
   dockerPermissionStrategy := DockerPermissionStrategy.CopyChown,
