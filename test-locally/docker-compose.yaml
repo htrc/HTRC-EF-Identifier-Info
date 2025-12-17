@@ -2,7 +2,7 @@ version: "3"
 
 services:
   ef-id-info:
-    image: docker.htrc.illinois.edu/services/ef-identifier-info:test2
+    image: docker.htrc.illinois.edu/services/ef-identifier-info:test4
     # The Play app (ef-id-info) will now be accessed internally via Nginx,
     # so we don't need to expose its port directly to the host anymore.
     # It will communicate with Nginx over the 'services' network.
@@ -13,6 +13,7 @@ services:
     volumes:
       - ../conf/application.conf:/opt/docker/conf/application.conf:ro
       - ../conf/logback.xml:/opt/docker/conf/logback.xml:ro
+      - ../logs:/opt/docker/logs:ro
       - ./data:/data:ro
     restart: always
 
